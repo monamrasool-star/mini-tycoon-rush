@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+<title>Mini Tycoon Rush</title>
+<link rel="stylesheet" href="game.css" />
+</head>
+<body>
+
+  <!-- ============ TOP BAR ============ -->
+  <header class="topbar">
+    <div class="topbar-title">
+      <span class="logo">🏭</span>
+      <div>
+        <h1>MINI TYCOON RUSH</h1>
+        <div class="level-tag" id="levelTag">Level 1 / 10 · Small Shop</div>
+      </div>
+    </div>
+    <button class="sound-btn" id="soundBtn" aria-label="Toggle sound" aria-pressed="true">🔊</button>
+  </header>
+
+  <main id="gameScreen" class="game-screen">
+
+    <!-- ============ RESOURCE CARDS ============ -->
+    <section class="resource-row" aria-label="Resources">
+      <div class="res-card cash">
+        <span class="res-label">CASH</span>
+        <span class="res-value" id="cashValue">$100</span>
+      </div>
+      <div class="res-card stock">
+        <span class="res-label">STOCK</span>
+        <span class="res-value" id="stockValue">0</span>
+      </div>
+      <div class="res-card upgrades">
+        <span class="res-label">UPGRADES</span>
+        <span class="res-value" id="upgradesValue">0</span>
+      </div>
+    </section>
+
+    <!-- ============ FACTORY VISUAL ============ -->
+    <section class="factory-stage" id="factoryStage" aria-label="Your factory">
+      <div class="sky"></div>
+      <div class="factory-scene" id="factoryScene"><!-- built by JS --></div>
+      <div class="fx-layer" id="fxLayer"><!-- floating +coins / +stock / particles --></div>
+    </section>
+
+    <!-- ============ EVENT BANNER ============ -->
+    <div class="event-banner" id="eventBanner" hidden></div>
+
+    <!-- ============ OBJECTIVE ============ -->
+    <section class="objective-card">
+      <div class="objective-head">
+        <span>CURRENT OBJECTIVE</span>
+        <span id="objectiveCount">0 / 5</span>
+      </div>
+      <div class="objective-text" id="objectiveText">Produce 5 products</div>
+      <div class="progress-track">
+        <div class="progress-fill" id="objectiveFill"></div>
+      </div>
+    </section>
+
+    <!-- ============ VIP CARD ============ -->
+    <section class="vip-card" id="vipCard" hidden>
+      <div class="vip-card-text">
+        <strong>👑 VIP Factory</strong>
+        <span>Share the game with a friend to unlock VIP features.</span>
+      </div>
+      <button class="vip-btn" id="vipShareBtn">SHARE GAME → UNLOCK VIP</button>
+    </section>
+
+    <!-- ============ ACTION BUTTONS ============ -->
+    <section class="action-row" aria-label="Actions">
+      <button class="action-btn produce" id="produceBtn">
+        <span class="action-icon">📦</span>
+        <span class="action-label">PRODUCE</span>
+      </button>
+      <button class="action-btn sell" id="sellBtn">
+        <span class="action-icon">🛒</span>
+        <span class="action-label">SELL</span>
+      </button>
+      <button class="action-btn upgrade" id="upgradeBtn">
+        <span class="action-icon">⚙️</span>
+        <span class="action-label">UPGRADE</span>
+        <span class="action-sub" id="upgradeCost">$150</span>
+      </button>
+    </section>
+
+    <div class="toast" id="toast" hidden></div>
+  </main>
+
+  <!-- ============ LEVEL COMPLETE OVERLAY ============ -->
+  <div class="overlay" id="levelCompleteOverlay" hidden>
+    <div class="overlay-card">
+      <div class="overlay-emoji">🎉</div>
+      <h2>LEVEL COMPLETE!</h2>
+      <p id="levelCompleteName">Small Shop cleared</p>
+      <div class="reward-pill">REWARD <span id="rewardAmount">+$200</span></div>
+      <button class="primary-btn" id="nextLevelBtn">NEXT LEVEL</button>
+    </div>
+  </div>
+
+  <!-- ============ FINAL SCREEN OVERLAY ============ -->
+  <div class="overlay" id="finalOverlay" hidden>
+    <div class="overlay-card final">
+      <canvas id="confettiCanvas"></canvas>
+      <div class="overlay-content">
+        <div class="overlay-emoji">🏆</div>
+        <h2>TYCOON EMPIRE COMPLETE!</h2>
+        <p>LEVEL 10 CLEARED</p>
+        <div class="final-stat">
+          <span class="final-label">FINAL BUSINESS VALUE</span>
+          <span class="final-value" id="finalCash">$0</span>
+        </div>
+        <div class="final-title" id="finalTitle">FACTORY TYCOON</div>
+        <div class="final-actions">
+          <button class="primary-btn" id="playAgainBtn">PLAY AGAIN</button>
+          <button class="secondary-btn" id="shareResultBtn">SHARE RESULT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
